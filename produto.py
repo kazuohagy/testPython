@@ -13,7 +13,7 @@ class Produto:
         self.preco = preco
 
     def desconto(self, percentual):
-        self.preco = self.preco - (self.preco * (percentual / 100))
+        return self.preco - (self.preco * (percentual / 100))
 
     def criarProduto(self):
         dado = {
@@ -30,7 +30,7 @@ class Produto:
                               '$set': {'preco': preco}})
 
     def encontrarProduto(self):
-        resultado1 = collection.find_one({'nome': 'iphone'})
+        resultado1 = collection.find_one({'nome': self.nome})
         if resultado1:
             print(resultado1)
         else:
